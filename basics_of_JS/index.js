@@ -47,3 +47,23 @@ let myArr2 = [1, 0, 3, 7, 5, 6, 7, 9];
 
 console.log(myArr2.splice(1, 4));
 console.log(myArr2);
+
+let truthy = "";
+
+const result = truthy ? "exprIfTrue" : "exprIfFalse";
+
+console.log(result);
+
+const products = [
+  { itemName: "iphone", itemPrice: "$1500", itemColor: "red" },
+  { itemName: "samsumg", itemPrice: "$1000", itemColor: "black" },
+  { itemName: "nokia", itemPrice: "$1900", itemColor: "silver" },
+  { itemName: "moto", itemPrice: "$1500", itemColor: "red" },
+  { itemName: "google", itemPrice: "$1700", itemColor: "gold" },
+  { itemName: "vivo", itemPrice: "$100", itemColor: "red" },
+  { itemName: "poco", itemPrice: "$1300", itemColor: "blue" },
+];
+
+products.forEach((item) => {
+  console.log(item.itemName);
+});
