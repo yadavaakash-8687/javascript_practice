@@ -65,5 +65,7 @@ const products = [
 ];
 
 products.forEach((item) => {
-  console.log(item.itemName);
+  item.itemColor === "red"
+    ? console.log(item.itemPrice)
+    : console.log(item.itemColor);
 });
