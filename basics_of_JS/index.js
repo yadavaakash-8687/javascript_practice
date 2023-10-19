@@ -69,3 +69,8 @@ products.forEach((item) => {
     ? console.log(item.itemPrice)
     : console.log(item.itemColor);
 });
+
+// // dom manipulation
+
+// const parent = document.querySelector(".parent");
+// console.log(parent);
