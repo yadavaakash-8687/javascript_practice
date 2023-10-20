@@ -1,20 +1,37 @@
-// const heading = document.querySelector(".heading");
-// console.log(heading);
-
-// let changeText = () => {
-//   heading.innerHTML = "practice done ";
+// const randomColor = function () {
+//   const hex = "0123456789ABCDEF";
+//   let color = "#";
+//   for (let i = 0; i < 6; i++) {
+//     color += hex[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
 // };
-// const changeHeading = setTimeout(changeText, 5000);
-// const btn = document.querySelector(".btn").addEventListener("click", () => {
-//   clearTimeout(changeHeading);
-// });
+// randomColor();
 
-const randomColor = function () {
-  const hex = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += hex[Math.floor(Math.random() * 16)];
+const heading = document.querySelector(".heading");
+const startChangingColor = document.querySelector(".btnstart");
+const stop = document.querySelector(".btnstop");
+
+let originalText = heading.innerHTML;
+let isPracticeDone = false;
+
+const toggleText = () => {
+  if (isPracticeDone) {
+    heading.innerHTML = originalText;
+  } else {
+    heading.innerHTML = "practice done";
   }
-  return color;
+  isPracticeDone = !isPracticeDone; // Toggle the flag
 };
-randomColor();
+
+let intervalId; // To store the interval ID
+
+startChangingColor.addEventListener("click", () => {
+  // Start toggling the text every 1 second
+  intervalId = setInterval(toggleText, 1000);
+});
+
+// stop.addEventListener("click", () => {
+//   // Stop the toggling interval
+//   clearInterval(intervalId);
+// });
