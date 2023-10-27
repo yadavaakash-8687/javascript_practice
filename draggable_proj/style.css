@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+.container {
+  background-color: black;
+}
+
+.draggable {
+  background-color: #fff;
+}
