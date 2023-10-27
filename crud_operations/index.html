@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <fieldset>
+      <legend>
+        <h1>Deatail Form</h1>
+      </legend>
+
+      <form>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+        /><br /><br />
+        <input type="text" name="Job" id="job" placeholder="Job" /><br /><br />
+        <input
+          type="text"
+          name="Experience"
+          id="exp"
+          placeholder="Experience"
+        /><br /><br />
+        <input type="button" id="btn" value="Submit" />
+        <input type="button" value="Reset" />
+      </form>
+    </fieldset>
+    <br />
+    <div id="msg">details saved succesfully</div>
+
+    <fieldset>
+      <legend>
+        <h2>Data From Local Storage</h2>
+      </legend>
+      <table id="table">
+        <tr>
+          <td class="col">Name</td>
+          <td class="col">Job</td>
+          <td class="col">Experience</td>
+        </tr>
+      </table>
+    </fieldset>
+  </body>
+  <script src="script.js"></script>
+</html>
