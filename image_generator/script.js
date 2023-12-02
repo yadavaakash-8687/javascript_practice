@@ -1,12 +1,14 @@
 const generateForm = document.querySelector(".generate-form");
 const imageGallery = document.querySelector(".image-gallery");
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
+let isImageGeneration = false;
 
 const updateImageCard = (imgDataArray) => {
   imgDataArray.forEach((imgObject, index) => {
     const imgCard = imageGallery.querySelectorAll(".img-card")[index];
     const imgElement = imgCard.querySelector("img");
+    const downloadBtn = imgCard.querySelector(".download-btn");
 
     // setting AI-generated image to the imagecard
     const aiGeneratedImg = `data:image/jpeg;base64,${imgObject.b64_json}`;
@@ -14,6 +16,8 @@ const updateImageCard = (imgDataArray) => {
     // removing the loading class when image is loaded
     imgElement.onload = () => {
       imgCard.classList.remove("loading");
+      downloadBtn.setAttribute("href", aiGeneratedImg);
+      downloadBtn.setAttribute("download", `${new Date().getTime()}.jpg`);
     };
   });
 };
@@ -45,11 +49,16 @@ const generateAiImages = async (userPrompt, userImgQuantity) => {
     updateImageCard([...data]);
   } catch (error) {
     alert(error.message);
+  } finally {
+    isImageGeneration = false;
   }
 };
 
 const handleFormSubmission = (e) => {
   e.preventDefault();
+
+  if (isImageGeneration) return;
+  isImageGeneration = true;
   // getting values of  the user input and the image quantity from the form
   const userPrompt = e.srcElement[0].value;
   const userImgQuantity = e.srcElement[1].value;
